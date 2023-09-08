@@ -41,7 +41,7 @@ const Events = () => {
     // },
   ]
   return (
-    <div className="flex flex-col gap-4 md:mt-8">
+    <div className="flex flex-col gap-4 mt-8 sm:justify-center sm:items-center">
       <h1 className="text-3xl sm:text-xl font-bold">Upcoming Events</h1>
        <div className="flex gap-6 flex-wrap items-center justify-center">
         {events.map((event, index) => (

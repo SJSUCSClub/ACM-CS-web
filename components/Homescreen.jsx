@@ -4,7 +4,7 @@ import Events from './Events'
 
 const Homescreen = () => {
   return (
-    <div className='min-h-[100vh] flex flex-col gap-12 justify-center items-center max-w-[1280px] sm:mt-4 sm:gap-6 mb-12'>
+    <div className='min-h-[100vh] flex flex-col gap-12 justify-center items-center max-w-[1280px] sm:mt-4'>
       <div className="flex flex-col gap-10 justify-center sm:gap-6">
         <div className="flex flex-col gap-4 sm:justify-center sm:items-center">
           <h1 className="text-5xl sm:text-3xl font-black drop-shadow-lg">
