@@ -7,7 +7,7 @@ import Anne from '@/public/photos/officers/annemai.jpg'
 import Bineet from '@/public/photos/officers/bineet.png'
 import Galit from '@/public/photos/officers/galitbolotin.png'
 import Tim from '@/public/photos/officers/tim.png'
-
+import Angela from '@/public/photos/officers/angela.png'
 
 
 const Officers = () => {
@@ -43,7 +43,7 @@ const Officers = () => {
       linkedin: "https://www.linkedin.com/in/bineet-anand/"
     },
     {
-      name: "Timnothy Kim",
+      name: "Timothy Kim",
       role: "Treasurer",
       photo: Tim,
       linkedin: "https://www.linkedin.com/in/timothy-kim712/"
@@ -52,12 +52,18 @@ const Officers = () => {
       name: "Trique Nguyen",
       role: "Dev Team Lead",
       photo: Trique,
+      linkedin: "https://www.linkedin.com/in/trique-nguyen/"
+    },
+    {
+      name: "Angela Huang",
+      role: "Secretary",
+      photo: Angela,
       linkedin: "https://www.linkedin.com/in/triquenguyen"
     },
   ]
   return (
-    <div className="flex flex-col items-center justify-center gap-8 max-w-[1080px]">
-      <h1 className="font-black text-4xl text-[#196096] sm:text-3xl">Our Officers</h1>
+    <div className="flex flex-col items-center justify-center gap-16 sm:gap-8 max-w-[1280px] mb-24">
+      <h1 className="font-extrabold text-5xl text-[#196096] sm:text-3xl">Our Officers</h1>
       <div className="xl:grid xl:grid-cols-4 sm:flex sm:flex-wrap md:flex md:flex-wrap gap-8 items-center justify-center">
         {officers.map((officer) => (
           <OfficerCard name={officer.name} role={officer.role} photo={officer.photo} linkedin={officer.linkedin} />

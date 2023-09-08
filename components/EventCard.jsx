@@ -5,7 +5,7 @@ import Schedule from '@/public/icons/schedule.png'
 
 const EventCard = ({ title, description, schedule, location, company, website }) => {
   return (
-    <div className="transition duration-200 ease-in-out hover:shadow-2xl w-[20rem] sm:w-[18rem] h-auto bg-neutral-200 hover: px-6 py-4 rounded-lg flex flex-col gap-2 drop-shadow-lg">
+    <div className="transition duration-100 ease-linear hover:shadow-2xl w-[20rem] sm:w-[18rem] h-auto bg-neutral-200 hover: px-6 py-4 rounded-lg flex flex-col gap-2 drop-shadow-lg">
       <h1 className="text-2xl sm:text-xl font-bold">{title}</h1>
       {/* <p>{description}</p> */}
       <div className="flex flex-col text-[16px] sm:text-sm font-semibold">

@@ -20,13 +20,13 @@ const Footer = () => {
     },
   ]
   return (
-    <div className="w-full bg-[#263238] text-white py-8 space-y-6 flex flex-col gap-4 items-center justify-center mt-12">
+    <div className="w-full bg-[#263238] text-white py-8 space-y-6 flex flex-col gap-4 items-center justify-center">
       <div className="flex sm:flex-col items-center justify-center gap-24 sm:gap-12">
         <div className="text-left flex flex-col gap-2">
           <div >
             <Image src={logo} alt="logo" width={150} height={150} />
           </div>
-          <p className="text-sm ml-2 font-semitbold">Room MQH 326, San Jose State University<br /> 1 Washington Sq, San Jose, CA 95192</p>
+          <p className="text-sm ml-2 font-semibold">Room MQH 227, San Jose State University<br /> 1 Washington Sq, San Jose, CA 95192</p>
           <div className="mt-6 ml-2">
             <LinkToButton url="mailto:officialcsclub.sjsu@gmail.com" text="Contact Us" color="from-[#ec6c04] via-[#f69904] to-[#fcc304]" />
           </div>
@@ -38,7 +38,7 @@ const Footer = () => {
           ))}
         </div>
 
-        <LinkToButton url="https://discord.gg/yHky9bXRdE" text="Join our Discord" color="from-[#bcbcfc] via-[#4464e4] to-[#7c54ac]"/>
+        <LinkToButton url="https://discord.gg/yHky9bXRdE" text="Join our Discord" color="from-[#bcbcfc] via-[#4464e4] to-[#7c54ac]" />
       </div>
 
 
