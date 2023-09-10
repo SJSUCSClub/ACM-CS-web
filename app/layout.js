@@ -15,8 +15,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-
-      <body className={`${inter.className} md:text-lg `}>
+      <head>
+          <link rel="icon" href="@/public/icons/logo.png" />
+      </head>
+      <body className={`${inter.className} `}>
         <Navbar />
         {children}
         <Footer />

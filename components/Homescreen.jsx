@@ -1,10 +1,12 @@
 import React from 'react'
 import LinkToButton from './LinkToButton'
 import Events from './Events'
+import Image from 'next/image'
+import Background from '@/public/photos/background.jpg'
 
 const Homescreen = () => {
   return (
-    <div className='min-h-[100vh] flex flex-col gap-12 justify-center items-center max-w-[1280px] sm:mt-4'>
+    <div className="h-screen flex flex-col gap-12 sm:gap-6 justify-center items-center max-w-[1280px] sm:mt-4">
       <div className="flex flex-col gap-10 justify-center sm:gap-6">
         <div className="flex flex-col gap-4 sm:justify-center sm:items-center">
           <h1 className="text-5xl sm:text-3xl font-black drop-shadow-lg">
