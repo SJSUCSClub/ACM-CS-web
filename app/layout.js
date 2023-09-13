@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <head>
           <link rel="icon" href="@/public/icons/logo.png" />
       </head>
-      <body className={`${inter.className} `}>
+      <body className={`${inter.className} flex flex-col justify-center items-center bg-[#f5f8f1] gap-12`}>
         <Navbar />
         {children}
         <Footer />

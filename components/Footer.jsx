@@ -21,8 +21,8 @@ const Footer = () => {
   ]
   return (
     <div className="w-full bg-[#263238] text-white py-8 space-y-6 flex flex-col gap-4 items-center justify-center">
-      <div className="flex sm:flex-col items-center justify-center gap-24 sm:gap-12">
-        <div className="md:text-left flex flex-col sm:justify-center sm:items-center gap-4">
+      <div className="flex sm:flex-col items-center justify-center gap-24 sm:gap-12 md:gap-12">
+        <div className="xl:text-left flex flex-col sm:justify-center sm:items-center gap-4">
           <div >
             <Image src={logo} alt="logo" width={150} height={150} />
           </div>

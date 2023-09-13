@@ -64,7 +64,7 @@ const Officers = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-16 sm:gap-8 max-w-[1280px] mb-24">
       <h1 className="font-extrabold text-5xl text-[#196096] sm:text-3xl">Our Officers</h1>
-      <div className="xl:grid xl:grid-cols-4 sm:flex sm:flex-wrap md:flex md:flex-wrap gap-8 items-center justify-center">
+      <div className="grid grid-cols-4 sm:flex sm:flex-wrap gap-8 items-center justify-center">
         {officers.map((officer) => (
           <OfficerCard name={officer.name} role={officer.role} photo={officer.photo} linkedin={officer.linkedin} />
         ))}
