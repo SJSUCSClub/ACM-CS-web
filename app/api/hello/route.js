@@ -1,4 +1,10 @@
-// pages/api/hello.js
-export async function POST(req, res) {
-  return new Response((JSON.stringify({ message: 'Hello world' })))
+import { connectDB } from '@/server/config/dbConn';
+import User from '@/server/models/user';
+import { NextResponse } from 'next/server';
+
+export async function POST(req) {
+  const { name } = await req.json();
+  await connectDB();
+  await User.create({ name });
+  return NextResponse.json({ message: 'User created' });
 }
