@@ -6,7 +6,7 @@ import Officers from '@/components/Officers'
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center md:px-16 2xl:px-24 gap-12">      
+    <main className="flex flex-col items-center justify-center md:px-16 2xl:px-24 gap-16">      
       <Hero />
       <Officers />
     </main>

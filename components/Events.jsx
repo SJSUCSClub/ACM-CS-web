@@ -40,7 +40,7 @@ const Events = () => {
   }, [visibleItems]);
 
   return (
-    <div className="flex flex-col gap-4 mt-8 sm:justify-center sm:items-center">
+    <div className="flex flex-col gap-6 mt-8 sm:justify-center sm:items-center">
       <h1 className="text-3xl sm:text-xl font-bold">Upcoming Events</h1>
       <div className="xl:grid xl:grid-cols-3 gap-6 sm:flex sm:flex-wrap md:flex md:flex-wrap items-center justify-center">
         {events.map((event, index) => (
