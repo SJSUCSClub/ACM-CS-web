@@ -21,6 +21,10 @@ const eventSchema = new mongoose.Schema(
     image: {
       type: String,
     },
+    paidMemberOnly: {
+      type: Boolean,
+      default: false,
+    },
     attendees: {
       type: Array,
       default: [],
@@ -33,6 +37,15 @@ const eventSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    type: {
+      type: String,
+      enum: ["event", "workshop"],
+      default: "event",
+    },
+    tags: {
+      type: Array,
+      default: [],
+    }
   },
   {
     timestamps: true,

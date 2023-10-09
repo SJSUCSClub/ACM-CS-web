@@ -3,7 +3,7 @@ import logo from "@/public/icons/logo.png";
 import SocialIcon from './SocialIcon';
 import Instagram from "@/public/icons/instagram.svg";
 import LinkedIn from "@/public/icons/linkedin.svg";
-import LinkToButton from './LinkToButton';
+import LinkToButton from './Buttons/LinkToButton';
 import Image from 'next/image'
 
 const Footer = () => {

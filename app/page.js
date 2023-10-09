@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Hero from '@/components/Hero'
-import Officers from '@/components/Officers'
+import Officers from '@/components/Officer/Officers'
 
 export default function Home() {
   return (

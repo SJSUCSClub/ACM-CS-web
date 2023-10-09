@@ -1,7 +1,8 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 import { connectDB } from "@/server/config/dbConn";
-import User from "@/server/models/user";
+import User from "@/server/models/userModel";
+
 
 const authOptions = {
   session: {
@@ -11,53 +12,85 @@ const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      async profile(profile) {
+        try {
+          await connectDB();
+
+          const userExists = await User.findOne({ email: profile.email })
+
+          if (!userExists) {
+            await User.create({
+              name: profile.name,
+              email: profile.email,
+              image: profile.picture,
+            })
+          }
+
+          profile = {
+            ...profile,
+            role: userExists?.role,
+            id: userExists?._id.valueOf(),
+            name: userExists?.name,
+            email: userExists?.email,
+            events: userExists?.events,
+            payment: userExists?.payment,
+            major: userExists?.major,
+            projects: userExists?.projects,
+          }
+
+          return profile
+        } catch (error) {
+          console.error(error)
+        }
+      }
     }),
   ],
 
   callbacks: {
     async signIn({ profile }) {
-      console.log(profile)
-
-      try {
-        await connectDB();
-
-        const userExists = await User.findOne({ email: profile.email })
-
-        if (!userExists) {
-          await User.create({
-            name: profile.name,
-            email: profile.email,
-            image: profile.image,
-          })
-        }
+      if (profile) {
         return true
-      } catch (error) {
-        console.error(error)
       }
+      return false
     },
+
     async redirect({ url, baseUrl }) {
       return url.startsWith(baseUrl) ? url : baseUrl
     },
+
     async jwt({ token, user }) {
       if (user) {
-        const isAdmin = user.email === "dung.n.nguyen@sjsu.edu"
-
-        token.role = isAdmin ? "admin" : "user"
+        token = {
+          ...token,
+          role: user.role,
+          email: user.email,
+          name: user.name,
+          id: user.id,
+          events: user.events,
+          payment: user.payment,
+          major: user.major,
+          projects: user.projects,
+        }
       }
+
       return token
     },
+
     async session({ session, token }) {
       if (session?.user) {
         session.user = {
           ...session.user,
           role: token.role,
-          id: token.id,
           email: token.email,
           name: token.name,
+          id: token.id,
+          events: token.events,
+          payment: token.payment,
+          major: token.major,
+          projects: token.projects,
         }
-
-        // session.user = token.user
       }
+
       return session
     },
     secret: process.env.NEXTAUTH_SECRET,

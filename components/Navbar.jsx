@@ -2,10 +2,10 @@
 import React from 'react'
 import Logo from '@/public/icons/logo.png'
 import Image from 'next/image'
-import ApplyButton from './ApplyButton'
-import GoogleSignInBtn from './GoogleSignInBtn'
+import ApplyBtn from './Buttons/ApplyBtn'
+import GoogleBtn from './Buttons/GoogleBtn'
 import { useSession, SignOut } from 'next-auth/react'
-import SignOutBtn from './SignOutBtn'
+import SignOutBtn from './Buttons/SignOutBtn'
 
 const Navbar = () => {
   const { status } = useSession()
@@ -16,8 +16,8 @@ const Navbar = () => {
         <SignOutBtn />
       ) : (
         <div className="flex gap-4 items-center justify-center">
-          <ApplyButton />
-          <GoogleSignInBtn />
+          <ApplyBtn />
+          <GoogleBtn />
         </div>
       )}
     </div>

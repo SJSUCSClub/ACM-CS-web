@@ -10,6 +10,26 @@ const userSchema = new mongoose.Schema({
     required: [true, "Email is required"],
     unique: [true, 'Email already exists'],
   },
+  studentType: {
+    type: String,
+    enum: ['undergraduate', 'graduate', 'alumni'],
+    default: 'undergraduate',
+  },
+  major: {
+    type: String,
+  },
+  bio: {
+    type: String,
+  },
+  discord: {
+    type: String,
+  },
+  linkedin: {
+    type: String,
+  },
+  github: {
+    type: String,
+  },
   role: {
     type: String,
     enum: ['member', 'admin', 'user'],
@@ -26,9 +46,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: ['semester', 'yearly', 'unpaid'],
     default: 'unpaid',
-  },
-  major: {
-    type: String,
   },
   projects: {
     type: Array,
