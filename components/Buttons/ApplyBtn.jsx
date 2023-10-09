@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-const ApplyButton = () => {
+const ApplyBtn = () => {
   const [click, setClick] = useState(false)
   const [visibleItems, setVisibleItems] = useState([]);
 
@@ -60,4 +60,4 @@ const ApplyButton = () => {
   )
 }
 
-export default ApplyButton
+export default ApplyBtn
