@@ -17,7 +17,7 @@ const Navbar = () => {
       ) : (
         <div className="flex gap-4 items-center justify-center">
           <ApplyBtn />
-          {/* <GoogleBtn /> */}
+          <GoogleBtn />
         </div>
       )}
     </div>
