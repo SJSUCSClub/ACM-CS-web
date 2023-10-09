@@ -12,7 +12,7 @@ const MemberHomePage = () => {
     }
   })
   return (
-    <div>Member Home Page</div>
+    <div>{session?.user.id}</div>
   )
 }
 
