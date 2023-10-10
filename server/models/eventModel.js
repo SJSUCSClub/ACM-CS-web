@@ -10,6 +10,10 @@ const eventSchema = new mongoose.Schema(
       type: String,
       required: [true, "Description is required"],
     },
+    presenter: {
+      type: String,
+      default: "TBA",
+    },
     date: {
       type: Date,
       required: [true, "Date is required"],
