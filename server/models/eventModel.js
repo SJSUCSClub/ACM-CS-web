@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { Events } from "react-scroll";
 
 const eventSchema = new mongoose.Schema(
   {
