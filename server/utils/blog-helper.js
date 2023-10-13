@@ -9,7 +9,7 @@ export async function getBlogs() {
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer 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`,
+      Authorization: `Bearer `,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ query: discussionGql('DIC_kwDOKP9wN84CaFwd') }),
@@ -54,14 +54,14 @@ export async function getBlogDetail(id) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer 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`
+      'Authorization': `Bearer `
     },
     body: JSON.stringify({ query: discussionDetailGql('DIC_kwDOKP9wN84CaFwd') })
   })
     .then((res) => res.json())
     .catch((err) => console.log(err))
 
-  const discussion = res.data.repository.discussion
+  const discussion = res.data.repository.discussion.nodes
 
   const {
     author: { url, login, avatarUrl },
