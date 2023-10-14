@@ -1,11 +1,12 @@
-import React from 'react'
+import RedirectBtn from "@/components/Buttons/RedirectBtn";
+import React from "react";
 
 const AdminHomePage = () => {
-  return (
-    <div className="h-screen">
-      <h1>this is admin</h1>
-    </div>
-  )
-}
+    return (
+        <div className="h-screen">
+            <RedirectBtn url="/admin/create-event" text="Create Event" />
+        </div>
+    );
+};
 
-export default AdminHomePage
+export default AdminHomePage;
