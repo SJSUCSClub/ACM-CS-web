@@ -9,13 +9,14 @@ export async function getBlogs() {
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer `,
+      Authorization: `Bearer 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`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ query: discussionGql('DIC_kwDOKP9wN84CaFwd') }),
   })
     .then((res) => res.json())
     .catch((err) => console.log(err))
+
   const discussions = res.data.repository.discussions.nodes
   const posts = discussions.map((discussion) => {
     const { title, discussionUrl, number, bodyHTML, bodyText, createdAt, lastEditedAt, author, labels } = discussion
@@ -54,7 +55,7 @@ export async function getBlogDetail(id) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer `
+      'Authorization': `Bearer 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`
     },
     body: JSON.stringify({ query: discussionDetailGql('DIC_kwDOKP9wN84CaFwd') })
   })
@@ -66,7 +67,7 @@ export async function getBlogDetail(id) {
   const {
     author: { url, login, avatarUrl },
     createdAt,
-    title: title,
+    title,
     bodyHTML,
   } = discussion
 

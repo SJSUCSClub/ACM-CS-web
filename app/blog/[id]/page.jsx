@@ -5,27 +5,31 @@ import { useEffect, useState } from "react"
 import { getBlogDetail } from '@/server/utils/blog-helper'
 import BlogHeader from '@/components/Blog/BlogHeader'
 import { useRouter } from 'next/navigation'
+import { GetServerSideProps } from 'next'
 
-const BlogPost = () => {
+// export const getServerSideProps = async (context) => {
+//   const route = context.query.id
+//   const id = Number(route)
+//   let blogDetail = await getBlogDetail(id)
+
+//   console.log(blogDetail)
+//   return {
+//     props: {
+//       blogDetail
+//     },
+//   }
+// }
+
+const BlogPost = ({ blogDetail }) => {
   // const {author, bodyHTML, createdAt, title} = blogData
   const router = useRouter()
-  const { id } = router.query
+  // const { id } = router.query
   return (
     <div>
-      {id}
+      hello
     </div>
   )
 }
 
 export default BlogPost
 
-// export const getServerSideProps = async (context) => {
-//   const route = context.query.id
-//   const id = Number(route)
-//   let blogDetail = await getBlogDetail(id)
-//   return {
-//     props: {
-//       blogData: blogDetail,
-//     },
-//   }
-// }

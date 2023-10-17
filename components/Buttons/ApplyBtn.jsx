@@ -34,7 +34,7 @@ const ApplyBtn = () => {
 
   return (
     <div>
-      <button onClick={handleClick} className="relative px-4 py-2 border-2 border-[#eabc4e] rounded-md hover:bg-[#eabc4e] text-[#196096] transition duration-200">Become a Member</button>
+      <button onClick={handleClick} className="relative px-4 py-2 border-2 border-[#eabc4e] rounded-md hover:bg-[#eabc4e] text-[#196096] transition duration-200 font-normal text-sm">APPLY</button>
       {click && (
         <div className="absolute flex flex-col gap-2 py-2 ">
           {applications.map((application, index) => (
