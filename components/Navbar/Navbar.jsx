@@ -12,12 +12,11 @@ import LinkCard from './LinkCard'
 const Navbar = () => {
   const { status } = useSession()
   return (
-    <div className="navbar bg-[#f5f8f1] px-16 py-3 sm:px-8 sm:py-2 flex justify-center sticky w-screen top-0 left-0 right-0 z-10 shadow-md">
-      <a href="/" className='mr-auto '>
+    <div className="navbar bg-[#f5f8f1] px-24 sm:px-6 py-3 sm:py-2 sticky flex justify-center w-screen top-0 left-0 right-0 z-10 shadow-md">
+      {/* <div className="max-w-[1440px] flex justify-center gap-[1]"> */}
+      <a href="/" className='mr-auto'>
         <Image src={Logo} alt="Logo" width={100} height={100} className="sm:w-12 sm:h-auto" />
       </a>
-
-
       {status === 'authenticated' ? (
         <SignOutBtn />
       ) : (
@@ -30,6 +29,7 @@ const Navbar = () => {
           <GoogleBtn />
         </div>
       )}
+      {/* </div> */}
     </div>
   )
 }

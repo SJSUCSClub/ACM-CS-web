@@ -8,19 +8,20 @@ const BlogPage = () => {
   const [tags, setTags] = useState([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const blogs = await getBlogs()
-      for (const blog of blogs) {
-        for (const tag of blog.tags) {
-          if (!tags.includes(tag)) {
-            setTags((prev) => [...prev, tag])
-          }
+  const fetchData = async () => {
+    const blogs = await getBlogs()
+    for (const blog of blogs) {
+      for (const tag of blog.tags) {
+        if (!tags.includes(tag)) {
+          setTags((prev) => [...prev, tag])
         }
       }
-      setBlogData(blogs)
-      setLoading(false)
     }
+    setBlogData(blogs)
+    setLoading(false)
+  }
+
+  useEffect(() => {
     fetchData()
     console.log(blogData)
   }, [])
