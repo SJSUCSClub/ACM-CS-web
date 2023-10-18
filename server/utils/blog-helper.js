@@ -1,8 +1,11 @@
 import { discussionDetailGql, discussionGql } from './gql'
+import dotenv from 'dotenv'
 
+dotenv.config()
 
 const API_URL = 'https://api.github.com/graphql'
-
+const GITHUB_API_TOKEN = process.env.GITHUB_API_TOKEN
+const DISCUSSION_CATEGORY_ID = process.env.DISCUSSION_CATEGORY_ID
 
 export async function getBlogs() {
   const res = await fetch(API_URL, {
