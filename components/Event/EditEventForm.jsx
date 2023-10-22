@@ -52,7 +52,9 @@ const EditEventForm = ({
       }
       router.refresh();
       router.push("/");
-    } catch (error) {}
+    } catch (error) {
+        console.log(error);
+    }
   };
 
   return (
