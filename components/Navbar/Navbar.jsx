@@ -17,18 +17,21 @@ const Navbar = () => {
       <a href="/" className='mr-auto'>
         <Image src={Logo} alt="Logo" width={100} height={100} className="sm:w-12 sm:h-auto" />
       </a>
-      {status === 'authenticated' ? (
-        <SignOutBtn />
-      ) : (
-        <div className="flex gap-4 items-center justify-center">
-          <LinkCard path="/aboutus" pathName="ABOUT US" />
-          <LinkCard path="/event" pathName="EVENTS" />
-          <LinkCard path="/workshop" pathName="WORKSHOPS" />
-          <LinkCard path="/blog" pathName="BLOGS" />
-          <ApplyBtn />
-          <GoogleBtn />
-        </div>
-      )}
+      <div className="flex gap-4 items-center justify-center">
+        <LinkCard path="/aboutus" pathName="ABOUT US" />
+        <LinkCard path="/event" pathName="EVENTS" />
+        <LinkCard path="/workshop" pathName="WORKSHOPS" />
+        <LinkCard path="/blog" pathName="BLOGS" />
+        {status === 'authenticated' ? (
+          <SignOutBtn />
+        ) : (
+          <div className="flex gap-4 items-center justify-center">
+            <ApplyBtn />
+            <GoogleBtn />
+          </div>
+        )}
+      </div>
+
       {/* </div> */}
     </div>
   )

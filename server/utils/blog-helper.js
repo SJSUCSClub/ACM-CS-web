@@ -74,8 +74,16 @@ export async function getBlogDetail(id) {
     bodyHTML,
   } = discussion
 
+  const authorUrl = author.url
+  const authorName = author.login
+  const authorAvatar = author.avatarUrl
+
   const detail = {
-    author,
+    author: {
+      url: authorUrl,
+      name: authorName,
+      avatar: authorAvatar
+    },
     createdAt,
     title,
     bodyHTML,

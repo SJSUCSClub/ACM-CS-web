@@ -3,7 +3,7 @@ import React from 'react'
 const TagCard = ({ tagName }) => {
   return (
     <div className="text-[gray]">
-      {tagName}
+      #{tagName}
     </div>
   )
 }
