@@ -1,7 +1,7 @@
-import React from 'react'
-import EventCard from './EventCard'
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import React from "react";
+import EventCard from "./EventCard";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const Events = () => {
   const [visibleItems, setVisibleItems] = useState([]);
@@ -10,23 +10,34 @@ const Events = () => {
     {
       title: "MESA Club Fair",
       description: "Come to learn more about us at the Club Fair!",
+      presenter: "",
       schedule: "Sept 13, 11 AM - 2 PM",
       location: "7th Street Plaza",
+      image: "",
+      maxAttendees: 50,
+      tags: "",
     },
     {
       title: "Kohl's Info Session",
       description: "Come to learn more about us at the Club Fair!",
+      presenter: "",
       schedule: "Sept 14, 1 PM - 2 PM",
       location: "MQH 227",
+      image: "",
+      maxAttendees: 50,
+      tags: "",
     },
     {
       title: "CS Club Fair 2",
       description: "Come to learn more about us at the Club Fair!",
+      presenter: "",
       schedule: "Sept 15, 11 AM - 2 PM",
       location: "MQH 226 - 227",
+      image: "",
+      maxAttendees: 50,
+      tags: "",
     },
-
-  ]
+  ];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -54,13 +65,12 @@ const Events = () => {
             }
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-
             <EventCard key={index} {...event} />
           </motion.div>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Events
+export default Events;
