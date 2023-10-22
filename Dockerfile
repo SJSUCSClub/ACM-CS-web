@@ -1,7 +1,7 @@
 FROM node:alpine AS base
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN npm ci
+RUN npm ci --only=production
 
 FROM base AS builder
 WORKDIR /app
