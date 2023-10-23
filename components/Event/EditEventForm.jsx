@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+
 const EditEventForm = ({
   id,
   title,
@@ -13,6 +14,7 @@ const EditEventForm = ({
   image,
   maxAttendees,
   tags,
+  cancelForm,
 }) => {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
@@ -22,7 +24,6 @@ const EditEventForm = ({
   const [newImage, setNewImage] = useState(image);
   const [newMaxAttendees, setNewMaxAttendees] = useState(maxAttendees);
   const [newTags, setNewTags] = useState(tags);
-
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -53,14 +54,19 @@ const EditEventForm = ({
       router.refresh();
       router.push("/");
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
   };
 
+  const handleCancel = () => {
+    cancelForm();
+  };
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="bg-amber-200 p-8 rounded-lg shadow-lg">
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+    <>
+    <div className="fixed inset-0 flex items-center justify-center">      
+      <div className="bg-amber-200  p-8  rounded-lg shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
+          
           <input
             onChange={(e) => setNewTitle(e.target.value)}
             value={newTitle}
@@ -119,12 +125,22 @@ const EditEventForm = ({
             placeholder="Event Tags"
           />
 
-          <button className="bg-blue-600 font-bold text-white py-3 px-6 rounded w-fit">
+          <button
+            className="bg-blue-600 font-bold text-white py-3 px-6 rounded w-fit"
+          >
             Update Event
           </button>
+          <button
+            type="button"
+            onClick={handleCancel}
+            className="bg-blue-600 font-bold text-white py-3 px-6 rounded w-fit"
+          >
+            Close
+          </button>
         </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
