@@ -18,23 +18,24 @@ const validateInputs = (data, setErrors) => {
     let error = false;
     console.log(data);
 
-    if (
-        data.image.type !== "image/png" &&
-        data.image.type !== "image/jpeg" &&
-        data.image.type !== "image/jpg" &&
-        data.image.type !== "image/gif"
-    ) {
-        setErrors((prev) => ({
-            ...prev,
-            image: "Upload a valid image.",
-        }));
-        error = true;
-    } else {
-        setErrors((prev) => ({
-            ...prev,
-            image: "",
-        }));
-    }
+    // TODO: Uncomment this once AWS for images is set up
+    // if (
+    //     data.image.type !== "image/png" &&
+    //     data.image.type !== "image/jpeg" &&
+    //     data.image.type !== "image/jpg" &&
+    //     data.image.type !== "image/gif"
+    // ) {
+    //     setErrors((prev) => ({
+    //         ...prev,
+    //         image: "Upload a valid image.",
+    //     }));
+    //     error = true;
+    // } else {
+    //     setErrors((prev) => ({
+    //         ...prev,
+    //         image: "",
+    //     }));
+    // }
 
     if (!data.title) {
         setErrors((prev) => ({
@@ -93,6 +94,11 @@ const validateInputs = (data, setErrors) => {
             location: "Location is required.",
         }));
         error = true;
+    } else {
+        setErrors((prev) => ({
+            ...prev,
+            location: "",
+        }));
     }
 
     if (!data.maxAttendees) {
@@ -128,7 +134,7 @@ const page = () => {
     const [loading, setLoading] = React.useState(false);
     const [formError, setFormError] = React.useState(null); // This is the error that will be displayed at the bottom of the form to inform the user of a input/server error
     const [inputErrors, setInputErrors] = React.useState({
-        image: "",
+        // image: "",
         title: "",
         description: "",
         date: "",
@@ -165,7 +171,8 @@ const page = () => {
                     <FormTitle>New Event</FormTitle>
                     <FormDescription>
                         Fill out each section of the form below to create a new
-                        event. All fields are required.
+                        event. All fields marked with an asterisk (*) are
+                        required.
                     </FormDescription>
                 </FormHeader>
                 <FormSection>
