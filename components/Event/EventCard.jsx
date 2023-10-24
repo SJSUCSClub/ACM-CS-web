@@ -29,7 +29,7 @@ const EventCard = ({
   }, [session]);
   return (
     <>
-      <div className="transition duration-100 ease-linear hover:shadow-2xl w-[20rem] sm:w-[18rem] h-auto bg-neutral-200 px-6 py-4 rounded-lg flex flex-col gap-2 drop-shadow-lg">
+      <div className="relative z-50 transition duration-100 ease-linear hover:shadow-2xl w-[20rem] sm:w-[18rem] h-auto bg-neutral-200 px-6 py-4 rounded-lg flex flex-col gap-2 drop-shadow-lg">
         {isAdmin && (
           <AdminControl
             id={id}
