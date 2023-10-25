@@ -18,7 +18,7 @@ const WorkshopsPage = () => {
     {
       title: "TypeScript Workshop",
       description:
-        "Dive into using React.js with TypeScript and Gatsby! Long description testing here. Should be on second line.",
+        "Dive into using React.js with TypeScript and Gatsby! Long description testing here.",
       schedule: "Oct 26, 1:30 PM",
       location: "MQH 227",
     },
