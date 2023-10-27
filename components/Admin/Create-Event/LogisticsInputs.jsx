@@ -12,8 +12,15 @@ const LogisticsInputs = ({ loading, inputErrors }) => {
                 error={inputErrors.date}
             />
             <TextInput
+                name="deadline"
+                type="datetime-local"
+                label={"Deadline"}
+                loading={loading}
+                error={inputErrors.deadline}
+            />
+            <TextInput
                 name="location"
-                placeholder={"Event location"}
+                placeholder={"MQH 227"}
                 label={"Location*"}
                 loading={loading}
                 error={inputErrors.location}

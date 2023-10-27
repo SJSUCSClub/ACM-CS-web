@@ -4,6 +4,7 @@ const TextInput = ({
     fullHeight,
     label,
     error,
+    helper,
     loading,
     placeholder,
     ...props
@@ -57,10 +58,17 @@ const TextInput = ({
                 />
             )}
 
-            {/* Error */}
-            <p className="h-4 w-full text-right text-red-500 pl-2 text-sm whitespace-nowrap">
-                {error && !loading && error}
-            </p>
+            <div className="flex justify-between">
+                {/* Helper text */}
+                <p className="bg-white h-6 flex-1 text-left text-gray-500 pl-2 text-sm whitespace-nowrap">
+                    {helper}
+                </p>
+
+                {/* Error */}
+                <p className="bg-white h-6 flex-1 text-right text-red-500 pl-2 text-sm whitespace-nowrap">
+                    {error && !loading && error}
+                </p>
+            </div>
         </div>
     );
 };

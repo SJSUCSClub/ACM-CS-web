@@ -16,7 +16,6 @@ import React from "react";
 // This function validates the inputs and sets/unsets the errors for each input
 const validateInputs = (data, setErrors) => {
     let error = false;
-    console.log(data);
 
     // TODO: Uncomment this once AWS for images is set up
     // if (
@@ -150,6 +149,7 @@ const page = () => {
             Object.fromEntries(data.entries()),
             setInputErrors
         );
+        console.log(Object.fromEntries(data.entries()));
         if (error) {
             setFormError("Please fix the errors above.");
             return;

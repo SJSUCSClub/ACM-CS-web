@@ -14,8 +14,10 @@ const Dropdown = ({ label, error, loading, options, ...props }) => {
                 } border rounded-md  px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600`}
                 {...props}
             >
-                {options.map((option) => (
-                    <option value={option}>{option}</option>
+                {options.map((option, idx) => (
+                    <option key={idx} value={option}>
+                        {option}
+                    </option>
                 ))}
             </select>
 

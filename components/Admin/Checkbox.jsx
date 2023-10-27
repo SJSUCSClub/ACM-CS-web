@@ -1,14 +1,26 @@
 import React from "react";
 
+export const CheckboxGroup = ({ values, label, children, ...props }) => {
+    return (
+        <div className="text-md flex flex-col gap-1 pb-4">
+            {/* Store the checkbox values as an array in a hidden Input so it will be submitted to the form */}
+            <input type="hidden" value={JSON.stringify(values)} {...props} />
+            {/* Label */}
+            {label && <label>{label}</label>}
+            {children}
+        </div>
+    );
+};
+
 const Checkbox = ({ label, error, loading, placeholder, ...props }) => {
     return (
-        <div className="text-md flex gap-5 items-center ">
-            <div class="inline-flex items-center">
+        <div className="text-md flex gap-5 items-center">
+            <div className="inline-flex items-center">
                 <label
                     className={`${
                         !loading && "cursor-pointer"
                     } relative flex items-center rounded-full`}
-                    for="checkbox"
+                    htmlFor="checkbox"
                 >
                     {/* Checkbox */}
                     <input
@@ -29,12 +41,12 @@ const Checkbox = ({ label, error, loading, placeholder, ...props }) => {
                             viewBox="0 0 20 20"
                             fill="currentColor"
                             stroke="currentColor"
-                            stroke-width="1"
+                            strokeWidth="1"
                         >
                             <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                             ></path>
                         </svg>
                     </div>
