@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
@@ -16,32 +16,57 @@ const userSchema = new mongoose.Schema(
       enum: ["undergraduate", "graduate", "alumni"],
       default: "undergraduate",
     },
+    year: {
+      type: String,
+      enum: ["Freshman", "Sophomore", "Junior", "Senior", "Other"],
+      required: true,
+    },
     major: {
       type: String,
+      default: "",
+    },
+    pronouns: {
+      type: String,
+      enum: ["He/Him", "She/Her", "They/Them"],
+      default: "",
     },
     bio: {
       type: String,
+      default: "",
     },
     discord: {
       type: String,
+      default: "",
     },
     linkedin: {
       type: String,
+      default: "",
     },
     github: {
       type: String,
+      default: "",
+    },
+    instagram: {
+      type: String,
+      default: "",
+    },
+    website: {
+      type: String,
+      default: "",
     },
     role: {
       type: String,
       enum: ["member", "admin", "user"],
       default: "user",
     },
-    events: {
-      type: Array,
+    registeredEvents: {
+      type: [Schema.Types.ObjectId],
+      ref: "Event",
       default: [],
     },
     image: {
       type: String,
+      default: "/default/profile",
     },
     payment: {
       type: String,
@@ -49,13 +74,18 @@ const userSchema = new mongoose.Schema(
       default: "unpaid",
     },
     projects: {
-      type: Array,
+      type: [Schema.Types.ObjectId],
+      ref: "Project",
       default: [],
     },
     createdAt: {
       type: Date,
       default: Date.now,
     },
+    // blacklisted: {
+    //   type: Boolean,
+    //   default: false
+    // }
   },
   {
     timestamps: true,
