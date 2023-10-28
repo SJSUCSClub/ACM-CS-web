@@ -13,12 +13,17 @@ const TagsInput = ({
     const handleEnter = (event) => {
         if (event.key === "Enter") {
             event.preventDefault();
-            if (event.target.value === "") {
+            const inputValue = event.target.value.trim();
+            if (inputValue === "") {
                 return;
             }
             setTags((prevItems) => {
                 const newItems = new Set(prevItems);
-                newItems.add(event.target.value);
+                const tags = inputValue
+                    .split(",")
+                    .map((tag) => tag.trim())
+                    .filter((tag) => tag !== "");
+                tags.forEach((tag) => newItems.add(tag));
                 event.target.value = "";
                 return newItems;
             });

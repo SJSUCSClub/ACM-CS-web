@@ -1,10 +1,26 @@
 import React from "react";
 
-export const Form = ({ onSubmit, loading, formError, children, ...props }) => {
+export const Form = ({
+    onSubmit,
+    loading,
+    formError,
+    longRequestMessage,
+    children,
+    ...props
+}) => {
     return (
         <form noValidate onSubmit={onSubmit} {...props}>
             <section className="w-full flex flex-col gap-8 px-8">
                 {children}
+
+                {/* Long request message */}
+                {longRequestMessage && (
+                    <section>
+                        <div className="bg-gray-100 border-gray-500 text-gray-500 border-[1px] rounded-xl p-8 overflow-hidden">
+                            {longRequestMessage}
+                        </div>
+                    </section>
+                )}
 
                 {/* Error */}
                 {formError && (
@@ -20,15 +36,16 @@ export const Form = ({ onSubmit, loading, formError, children, ...props }) => {
                     type="submit"
                     disabled={loading}
                     className={`${
-                        loading &&
-                        "bg-gray-100 hover:bg-gray-100 text-gray-400 border-[1px] shadow-none"
-                    } text-lg bg-blue-500 hover:bg-blue-700 text-white  py-2 px-6 rounded-lg shadow-lg`}
+                        loading
+                            ? "bg-gray-100 hover:bg-gray-100 text-gray-400 border-[1px] shadow-none"
+                            : "bg-blue-500 hover:bg-blue-700 text-white shadow-lg"
+                    } text-lg  py-2 px-6 rounded-lg`}
                 >
                     {loading && (
                         <svg
                             aria-hidden="true"
                             role="status"
-                            class="inline w-4 h-4 mr-3 text-gray-200 animate-spin dark:text-gray-300"
+                            className="inline w-4 h-4 mr-3 text-gray-200 animate-spin dark:text-gray-300"
                             viewBox="0 0 100 101"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"

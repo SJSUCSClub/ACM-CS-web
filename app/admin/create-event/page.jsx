@@ -11,6 +11,7 @@ import {
     FormSectionTitle,
     FormTitle,
 } from "@/components/Admin/Form";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 // This function validates the inputs and sets/unsets the errors for each input
@@ -74,7 +75,7 @@ const validateInputs = (data, setErrors) => {
             date: "Date is required.",
         }));
         error = true;
-    } else if (data.date < new Date()) {
+    } else if (new Date(data.date) < new Date()) {
         setErrors((prev) => ({
             ...prev,
             date: "Date must be in the future.",
@@ -84,6 +85,25 @@ const validateInputs = (data, setErrors) => {
         setErrors((prev) => ({
             ...prev,
             date: "",
+        }));
+    }
+
+    if (data.deadline && new Date(data.deadline) < new Date()) {
+        setErrors((prev) => ({
+            ...prev,
+            deadline: "Deadline must be in the future.",
+        }));
+        error = true;
+    } else if (data.deadline && new Date(data.deadline) > new Date(data.date)) {
+        setErrors((prev) => ({
+            ...prev,
+            deadline: "Deadline must be before the event date.",
+        }));
+        error = true;
+    } else {
+        setErrors((prev) => ({
+            ...prev,
+            deadline: "",
         }));
     }
 
@@ -130,33 +150,70 @@ const validateInputs = (data, setErrors) => {
 };
 
 const page = () => {
+    const router = useRouter();
+
     const [loading, setLoading] = React.useState(false);
     const [formError, setFormError] = React.useState(null); // This is the error that will be displayed at the bottom of the form to inform the user of a input/server error
+    const [longRequestMessage, setLongRequestMessage] = React.useState(null); // This is the the message that will be displayed when a request is taking longer than usual
     const [inputErrors, setInputErrors] = React.useState({
         // image: "",
         title: "",
         description: "",
         date: "",
+        deadline: "",
         location: "",
         maxAttendees: "",
     });
 
-    // TODO: Finish handleSubmit function, add setLoading
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = new FormData(e.target);
-        const error = validateInputs(
-            Object.fromEntries(data.entries()),
-            setInputErrors
-        );
-        console.log(Object.fromEntries(data.entries()));
-        if (error) {
-            setFormError("Please fix the errors above.");
-            return;
-        }
-        // TODO: Submit data to API and catch server error here in else if
-        else {
-            setFormError(null);
+        setLoading(true);
+        setLongRequestMessage(null);
+        setFormError(null);
+
+        const timer = setTimeout(() => {
+            setLongRequestMessage(
+                "The operation is taking longer than expected..."
+            );
+        }, 5000);
+
+        try {
+            const data = new FormData(e.target);
+            const inputs = Object.fromEntries(data.entries());
+            const error = validateInputs(inputs, setInputErrors);
+            if (error) {
+                throw new Error("Validation failed");
+            }
+
+            // Need to do this because FormData adds backslashes to arrays, which can't be parsed into arrays in the backend
+            let dataBody = Object.fromEntries(data.entries());
+            dataBody.audienceType = JSON.parse(dataBody.audienceType);
+            dataBody.tags = JSON.parse(dataBody.tags);
+            dataBody = JSON.stringify(dataBody);
+
+            const response = await fetch("/api/event", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: dataBody,
+            });
+            const json = await response.json();
+            if (!response.ok) {
+                throw new Error(json.error);
+            }
+
+            router.push(`/admin`);
+        } catch (err) {
+            if (err.message === "Validation failed") {
+                setFormError("Please fix the errors above.");
+            } else {
+                setFormError(err.message);
+            }
+        } finally {
+            setLoading(false);
+            setLongRequestMessage(null);
+            clearTimeout(timer);
         }
     };
 
@@ -166,6 +223,7 @@ const page = () => {
                 onSubmit={handleSubmit}
                 loading={loading}
                 formError={formError}
+                longRequestMessage={longRequestMessage}
             >
                 <FormHeader>
                     <FormTitle>New Event</FormTitle>
