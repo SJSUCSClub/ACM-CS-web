@@ -19,10 +19,12 @@ const projectSchema = new mongoose.Schema(
     contributors: {
       type: Array,
       default: [],
-    }
-  }, {
+    },
+  },
+  {
     timestamps: true,
-  }  
-)
+  }
+);
 
-export default mongoose.models.Project || mongoose.model('Project', projectSchema);
+export default mongoose.models.Project ||
+  mongoose.model("Project", projectSchema);

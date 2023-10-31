@@ -14,10 +14,10 @@ const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       async profile(profile) {
         try {
-          await connectDB();
-
+          connectDB();
+  
           const userExists = await User.findOne({ email: profile.email })
-
+  
           if (!userExists) {
             await User.create({
               name: profile.name,
@@ -25,7 +25,7 @@ const authOptions = {
               image: profile.picture,
             })
           }
-
+  
           profile = {
             ...profile,
             role: userExists?.role,
@@ -36,12 +36,19 @@ const authOptions = {
             payment: userExists?.payment,
             major: userExists?.major,
             projects: userExists?.projects,
+            studentType: userExists?.studentType,
+            linkedin: userExists?.linkedin,
+            github: userExists?.github,
+            discord: userExists?.discord,
+            bio: userExists?.bio,
+            joinDate: userExists?.createdAt,
           }
-
-          return profile
+  
+          console.log(profile)
         } catch (error) {
           console.error(error)
         }
+        return profile
       }
     }),
   ],
@@ -59,19 +66,7 @@ const authOptions = {
     },
 
     async jwt({ token, user }) {
-      if (user) {
-        token = {
-          ...token,
-          role: user.role,
-          email: user.email,
-          name: user.name,
-          id: user.id,
-          events: user.events,
-          payment: user.payment,
-          major: user.major,
-          projects: user.projects,
-        }
-      }
+      user && (token = { ...token, ...user })
 
       return token
     },
@@ -88,12 +83,20 @@ const authOptions = {
           payment: token.payment,
           major: token.major,
           projects: token.projects,
+          studentType: token.studentType,
+          linkedin: token.linkedin,
+          github: token.github,
+          discord: token.discord,
+          bio: token.bio,
+          joinDate: token.createdAt,
         }
       }
 
+      console.log(session)
       return session
     },
     secret: process.env.NEXTAUTH_SECRET,
+
   }
 }
 
