@@ -48,7 +48,7 @@ const getEvents = async () => {
 };
 
 export default function EventFeed() {
-  const events = Object.entries(getEvents());
+  // const events = Object.entries(getEvents());
   return (
     <>
       <div className="grid m-4 grid-cols-3 gap-5">
