@@ -1,7 +1,8 @@
-import React from 'react'
-import EventCard from './EventCard'
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import React from "react";
+import EventCard from "./EventCard";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import EventFeed from "./EventFeed";
 
 const Events = () => {
   const [visibleItems, setVisibleItems] = useState([]);
@@ -25,8 +26,7 @@ const Events = () => {
       schedule: "Sept 15, 11 AM - 2 PM",
       location: "MQH 226 - 227",
     },
-
-  ]
+  ];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -41,26 +41,14 @@ const Events = () => {
 
   return (
     <div className="flex flex-col gap-6 mt-8 sm:justify-center sm:items-center">
-      <h1 className="text-3xl sm:text-xl font-bold">Upcoming Events</h1>
-      <div className="xl:grid xl:grid-cols-3 gap-6 sm:flex sm:flex-wrap md:flex md:flex-wrap items-center justify-center">
-        {events.map((event, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -50 }}
-            animate={
-              visibleItems.includes(index)
-                ? { opacity: 1, x: 0 }
-                : { opacity: 0, x: -50 }
-            }
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-
-            <EventCard key={index} {...event} />
-          </motion.div>
-        ))}
+      <h1 className="sticky text-center font-extrabold text-5xl text-[#196096] sm:text-3xl">
+        Upcoming events
+      </h1>
+      <div className="overflow-auto p-18 border-[#eabc4e] border-[2px] rounded-xl">
+        <EventFeed />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Events
+export default Events;
