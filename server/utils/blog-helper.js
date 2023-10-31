@@ -1,5 +1,7 @@
 import { discussionDetailGql, discussionGql } from './gql'
+import dotenv from 'dotenv'
 
+dotenv.config()
 
 const API_URL = 'https://api.github.com/graphql'
 const GITHUB_API_TOKEN = process.env.GITHUB_API_TOKEN
@@ -9,14 +11,16 @@ export async function getBlogs() {
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer `,
+      'Authorization': `Bearer ${GITHUB_API_TOKEN}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ query: discussionGql('DIC_kwDOKP9wN84CaFwd') }),
+    body: JSON.stringify({ query: discussionGql(DISCUSSION_CATEGORY_ID) }),
   })
     .then((res) => res.json())
     .catch((err) => console.log(err))
+
   const discussions = res.data.repository.discussions.nodes
+
   const posts = discussions.map((discussion) => {
     const { title, discussionUrl, number, bodyHTML, bodyText, createdAt, lastEditedAt, author, labels } = discussion
     const url = `/blog/${number}`
@@ -53,10 +57,10 @@ export async function getBlogDetail(id) {
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${GITHUB_API_TOKEN}`,
       'Content-Type': 'application/json',
-      'Authorization': `Bearer `
     },
-    body: JSON.stringify({ query: discussionDetailGql('DIC_kwDOKP9wN84CaFwd') })
+    body: JSON.stringify({ query: discussionDetailGql(id) })
   })
     .then((res) => res.json())
     .catch((err) => console.log(err))
@@ -64,18 +68,27 @@ export async function getBlogDetail(id) {
   const discussion = res.data.repository.discussion
 
   const {
-    author: { url, login, avatarUrl },
+    author,
     createdAt,
-    title: title,
+    title,
     bodyHTML,
   } = discussion
 
+  const authorUrl = author.url
+  const authorName = author.login
+  const authorAvatar = author.avatarUrl
+
   const detail = {
-    author: { url, name: login, avatar: avatarUrl },
+    author: {
+      url: authorUrl,
+      name: authorName,
+      avatar: authorAvatar
+    },
     createdAt,
     title,
     bodyHTML,
   }
+
   return detail
 }
 
