@@ -40,14 +40,12 @@ const Events = () => {
   }, [visibleItems]);
 
   return (
-    <div className="flex flex-col gap-6 mt-8 sm:justify-center sm:items-center">
-      <h1 className="sticky text-center font-extrabold text-5xl text-[#196096] sm:text-3xl">
-        Upcoming events
-      </h1>
-      <div className="overflow-auto p-18 border-[#eabc4e] border-[2px] rounded-xl">
+    <>
+      <div className="flex flex-col gap-6 mt-8 sm:justify-center sm:items-center">
+        <h1 className="text-3xl sm:text-xl font-bold">Upcoming Events</h1>
         <EventFeed />
       </div>
-    </div>
+    </>
   );
 };
 
