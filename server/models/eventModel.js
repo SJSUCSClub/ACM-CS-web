@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const eventSchema = new mongoose.Schema(
   {
@@ -24,18 +24,21 @@ const eventSchema = new mongoose.Schema(
     },
     image: {
       type: String,
+      default: "/default/event-image",
     },
     paidMemberOnly: {
       type: Boolean,
       default: false,
     },
     attendees: {
-      type: Array,
+      type: [Schema.Types.ObjectId],
+      ref: "User",
       default: [],
     },
     maxAttendees: {
       type: Number,
       required: [true, "Max attendees is required"],
+      min: [1, "Minimum 1 attendee"],
     },
     createdAt: {
       type: Date,
@@ -46,9 +49,20 @@ const eventSchema = new mongoose.Schema(
       enum: ["event", "workshop"],
       default: "event",
     },
+    audienceType: {
+      type: [String],
+      enum: ["All", "undergraduate", "graduate", "alumni"],
+      default: "All",
+    },
     tags: {
       type: [String],
       default: [],
+    },
+    deadline: {
+      type: Date,
+      default: function () {
+        return this.date;
+      },
     },
   },
   {
