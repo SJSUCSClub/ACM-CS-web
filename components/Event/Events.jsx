@@ -1,8 +1,9 @@
-import React from "react";
-import EventCard from "./EventCard";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import EventFeed from "./EventFeed";
+import React from 'react'
+import EventCard from './EventCard'
+import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import Logo from '@/public/photos/background.jpg';
 const Events = () => {
   const events = [
     {
@@ -10,6 +11,10 @@ const Events = () => {
       description: "Come to learn more about us at the Club Fair!",
       schedule: "Sept 13, 11 AM - 2 PM",
       location: "7th Street Plaza",
+      tags: ["Club Fair", "Student Event", "Information Session"],
+      imageUrl: Logo,
+      company: '',
+      website: "https://www.acmsjsu.org/"
     },
     {
       title: "Kohl's Info Session",
