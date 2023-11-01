@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Hero from "@/components/Hero";
 import Officers from "@/components/Officer/Officers";
-import EventFeed from "@/components/Event/EventFeed";
 import Events from "@/components/Event/Events";
 
 export default function Home() {

@@ -1,5 +1,6 @@
 import React from "react";
 import LinkToButton from "./Buttons/LinkToButton";
+import Events from "./Event/Events";
 import Image from "next/image";
 import Background from "@/public/photos/background.jpg";
 

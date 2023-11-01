@@ -3,10 +3,7 @@ import EventCard from "./EventCard";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import EventFeed from "./EventFeed";
-
 const Events = () => {
-  const [visibleItems, setVisibleItems] = useState([]);
-
   const events = [
     {
       title: "MESA Club Fair",
@@ -28,24 +25,15 @@ const Events = () => {
     },
   ];
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (visibleItems.length < events.length) {
-        setVisibleItems((prevVisible) => [...prevVisible, prevVisible.length]);
-      } else {
-        clearInterval(intervalId);
-      }
-    }, 500);
-    return () => clearInterval(intervalId);
-  }, [visibleItems]);
-
   return (
-    <>
-      <div className="flex flex-col gap-6 mt-8 sm:justify-center sm:items-center">
-        <h1 className="text-3xl sm:text-xl font-bold">Upcoming Events</h1>
+    <div className="flex flex-col gap-6 mt-8 sm:justify-center sm:items-center">
+      <h1 className="text-center font-extrabold text-5xl text-[#196096] sm:text-3xl">
+        Upcoming Events
+      </h1>
+      <div className="border-[#eabc4e] border-2 rounded-xl p-3 border-spacing-5 ">
         <EventFeed />
       </div>
-    </>
+    </div>
   );
 };
 
