@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        'custom-bg': "url('../public/photos/sjsu-bg/sjsu2.jpg')",
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',

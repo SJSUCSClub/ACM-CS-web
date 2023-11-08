@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="@/public/icons/logo.png" />
       </head>
-      <body className={`${poppins.className} flex flex-col justify-center items-center bg-[#f5f8f1] gap-12`}>
+      <body className={`${poppins.className} flex flex-col justify-center items-center bg-[#f5f8f1] overflow-x-hidden`}>
         <NextAuthProvider>
           <Navbar />
           {children}
@@ -32,3 +32,6 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+
+{/* <div className="bg-custom-bg bg-cover h-screen bg-center bg-no-repeat w-full"> */ }
+

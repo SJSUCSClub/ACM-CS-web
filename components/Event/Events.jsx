@@ -31,7 +31,7 @@ const Events = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-6 mt-8 sm:justify-center sm:items-center">
+    <div className="flex flex-col gap-6 mt-8 sm:justify-center sm:items-center max-w-[1440px]">
       <h1 className="text-center font-extrabold text-5xl text-[#196096] sm:text-3xl">
         Upcoming Events
       </h1>

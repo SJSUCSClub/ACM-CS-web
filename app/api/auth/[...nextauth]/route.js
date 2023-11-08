@@ -14,7 +14,7 @@ const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       async profile(profile) {
         try {
-          connectDB();
+          // connectDB();
   
           const userExists = await User.findOne({ email: profile.email })
   

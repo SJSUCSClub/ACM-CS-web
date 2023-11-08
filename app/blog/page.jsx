@@ -1,4 +1,4 @@
-import { getBlogs } from "@/server/utils/blog-helper"
+import { getBlogs } from "@/util/blog-helper"
 import BlogCard from "@/components/Blog/BlogCard"
 
 const BlogPage = async () => {

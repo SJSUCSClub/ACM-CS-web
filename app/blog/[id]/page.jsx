@@ -1,5 +1,5 @@
 import React from 'react'
-import { getBlogDetail } from '@/server/utils/blog-helper'
+import { getBlogDetail } from '@/util/blog-helper'
 import BlogHeader from '@/components/Blog/BlogHeader'
 import parse from 'html-react-parser'
 import detail from './id.module.css'
