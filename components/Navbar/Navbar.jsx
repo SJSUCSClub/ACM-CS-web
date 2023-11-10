@@ -9,30 +9,27 @@ import SignOutBtn from '../Buttons/SignOutBtn'
 import Link from 'next/link'
 import LinkCard from './LinkCard'
 
-const Navbar = () => {
+const Navbar = ({ scroll }) => {
   const { status } = useSession()
   return (
-    <div className="navbar bg-[#f5f8f1] bg-transparent px-24 sm:px-6 py-3 sm:py-2 sticky flex justify-center w-full z-10 top-0 left-0 right-0 shadow-md">
-      {/* <div className="max-w-[1440px] flex justify-center gap-[1]"> */}
+    <div className={`navbar bg-[#f5f8f1]  ${scroll ? 'bg-[#f5f8f1] shadow-md' : 'bg-transparent'}  px-24 sm:px-6 py-3 sm:py-2 sticky flex justify-center w-[100vw] z-10 top-0 left-0 right-0`}>
       <a href="/" className='mr-auto'>
         <Image src={Logo} alt="Logo" width={100} height={100} className="sm:w-12 sm:h-auto" />
       </a>
       <div className="flex gap-4 items-center justify-center">
-        <LinkCard path="/aboutus" pathName="ABOUT US" />
-        <LinkCard path="/event" pathName="EVENTS" />
-        <LinkCard path="/workshop" pathName="WORKSHOPS" />
-        <LinkCard path="/blog" pathName="BLOGS" />
+        <LinkCard path="/aboutus" pathName="ABOUT US" scroll={scroll}/>
+        <LinkCard path="/event" pathName="EVENTS" scroll={scroll} />
+        <LinkCard path="/workshop" pathName="WORKSHOPS" scroll={scroll} />
+        <LinkCard path="/blog" pathName="BLOGS" scroll={scroll}/>
         {status === 'authenticated' ? (
           <SignOutBtn />
         ) : (
           <div className="flex gap-4 items-center justify-center">
-            <ApplyBtn />
+            <ApplyBtn scroll={scroll}/>
             <GoogleBtn />
           </div>
         )}
       </div>
-
-      {/* </div> */}
     </div>
   )
 }

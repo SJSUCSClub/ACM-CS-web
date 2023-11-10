@@ -1,9 +1,12 @@
+"use client"
+
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { Poppins } from 'next/font/google'
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer'
 import Logo from '@/public/icons/logo.png'
+import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] })
@@ -16,6 +19,19 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const changeNavBar = () => {
+    console.log(window.scrollY)
+    if (window.scrollY >= 66) {
+      setIsScrolled(true)
+    } else {
+      setIsScrolled(false)
+    }
+  }
+
+  window.addEventListener("scroll", changeNavBar)
+
   return (
     <html lang="en">
       <head>
@@ -23,7 +39,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${poppins.className} flex flex-col justify-center items-center bg-[#f5f8f1] overflow-x-hidden`}>
         <NextAuthProvider>
-          <Navbar />
+          <Navbar scroll={isScrolled} />
           {children}
           <Footer />
         </NextAuthProvider>

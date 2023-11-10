@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-const ApplyBtn = () => {
+const ApplyBtn = ({ scroll }) => {
   const [click, setClick] = useState(false)
   const [visibleItems, setVisibleItems] = useState([]);
 
@@ -11,10 +11,10 @@ const ApplyBtn = () => {
       name: "General Member",
       url: "https://forms.gle/aXjuoZ2e7TVVRJKT8"
     },
-    // {
-    //   name: "Development Team",
-    //   url: "https://forms.gle/avsw3DkLJpEkR9Js8"
-    // }
+    {
+      name: "Development Team",
+      url: "https://forms.gle/avsw3DkLJpEkR9Js8"
+    }
   ]
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const ApplyBtn = () => {
 
   return (
     <div>
-      <button onClick={handleClick} className="relative px-4 py-2 border-2 border-[#eabc4e] rounded-md hover:bg-[#eabc4e] text-[#196096] transition duration-200 font-normal text-sm">APPLY</button>
+      <button onClick={handleClick} className={`${scroll ? 'text-[#196096]' : 'text-[#f5f8f1]'} relative px-4 py-2 border-2 border-[#eabc4e] rounded-md hover:bg-[#eabc4e] transition duration-200 font-normal text-sm`}>APPLY</button>
       {click && (
         <div className="absolute flex flex-col gap-2 py-2 ">
           {applications.map((application, index) => (

@@ -25,7 +25,7 @@ export default function EventFeed() {
 
   useEffect(() => {
     getEvents();
-  }, [events]);
+  }, []);
 
   return (
     <>
