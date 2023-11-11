@@ -61,17 +61,31 @@ const MemberProfile = () => {
       {/* bottom */}
       <div className="w-full h-full">
         <div className="w-full flex justify-center">
-          <div style={{minHeight:"50px"}} className="w-full bg-[#DEDEDE] flex justify-center items-center gap-8">
-            <button>
+          {/* <div role="group" style={{minHeight:"50px"}} className="w-full flex justify-center items-center gap-8">
+            <button type="button" class="px-4 py-2 text-sm font-medium border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
               Enrolled Upcoming Events
-            </button>
-            <button>
+            </button >
+            <button type="button" class="px-4 py-2 text-sm font-medium border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
               Attended Events
             </button>
-            <button>
+            <button type="button" class="px-4 py-2 text-sm font-medium border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
               Attended Workshops
             </button>
-          </div>
+          </div> */}
+            <div class="flex gap-3 text-black">
+              <button class="transition text-sm font-medium rounded-s-lg hover:bg-gray-900 hover:text-white dark:hover:text-white dark:hover:bg-gray-700 ">
+                <input class="hidden" type="radio" id="enrolled" name="row"/>
+                <label class="p-3" for="enrolled">Enrolled Upcoming Events</label>
+              </button>
+              <button class="transition text-sm font-medium rounded-s-lg hover:bg-gray-900 hover:text-white dark:hover:text-white dark:hover:bg-gray-700 ">
+                <input class="hidden" type="radio" id="attendedEvents" name="row"/>
+                <label class="p-3" for="attendedEvents">Attended Events</label>
+              </button>
+              <button class="transition text-sm font-medium rounded-s-lg hover:bg-gray-900 hover:text-white dark:hover:text-white dark:hover:bg-gray-700 ">
+                <input class="hidden" type="radio" id="attendedWorkshops" name="row"/>
+                <label class="p-3" for="attendedWorkshops">Attended Workshops</label>
+              </button>
+            </div>
         </div>
       </div>
     </div>
