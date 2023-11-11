@@ -1,9 +1,12 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Navbar from '@/components/Navbar'
+import { Poppins } from 'next/font/google'
+import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer'
 import Logo from '@/public/icons/logo.png'
+
 const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] })
 import { NextAuthProvider } from './Provider'
 
 export const metadata = {
@@ -18,7 +21,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="@/public/icons/logo.png" />
       </head>
-      <body className={`${inter.className} flex flex-col justify-center items-center bg-[#f5f8f1] gap-12`}>
+      <body className={`${poppins.className} flex flex-col justify-center items-center bg-[#f5f8f1] gap-12`}>
         <NextAuthProvider>
           <Navbar />
           {children}

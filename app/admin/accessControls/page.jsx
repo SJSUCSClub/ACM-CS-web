@@ -18,11 +18,11 @@ const AdminControl = ({
 
   return (
     <>
-      <div className="relative inline-block text-left">
+      <div className="">
         <button
           onClick={toggleDropDown}
           data-dropdown-toggle="dropdown"
-          className="absolute right-0 text-gray-600 hover:text-gray-800 focus:outline-none"
+          className="absolute right-2 text-gray-600 hover:text-gray-800 focus:outline-none"
         >
 
          {/* dropdown menu icon */}
@@ -38,7 +38,7 @@ const AdminControl = ({
         </button>
       </div>
       {isOpen && (
-          <div className=" absolute right-0 absolute top-10 mt-2 w-48 rounded-md shadow-lg bg-zinc-300 ring-1 ring-black ring-opacity-5 divide-y divide-gray-200">
+          <div className="absolute right-0   mt-10 w-48 rounded-md shadow-lg bg-zinc-300 ring-1 ring-black ring-opacity-5 divide-y divide-gray-200">
           <div className="py-1 flex flex-col space-y-5">
           <EditBtn
         id={id}

@@ -63,7 +63,7 @@ const EditEventForm = ({
   };
   return (
     <>
-    <div className="fixed inset-0 flex items-center justify-center">      
+    <div className="fixed z-50 inset-0 flex items-center justify-center">      
       <div className="bg-amber-200  p-8  rounded-lg shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
           
