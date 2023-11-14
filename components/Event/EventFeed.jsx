@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -9,12 +9,12 @@ export default function EventFeed() {
 
   const getEvents = async () => {
     try {
-      const rest = await fetch("http://localhost:3000/api/event")
-  
+      const rest = await fetch("http://localhost:3000/api/event");
+
       if (!rest.ok) {
         throw new Error(rest);
       }
-  
+
       const json = await rest.json();
       setEvents(json.events);
       console.log(json);
