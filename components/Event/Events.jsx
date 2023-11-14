@@ -7,12 +7,13 @@ import Logo from "@/public/photos/background.jpg";
 import Arrow from "@/public/icons/arrow.png";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const Events = () => {
   const [showMore, setShowMore] = useState(false);
 
   const FeedStyle = {
-    height: "450px",
+    height: "510px",
     transition: "transform 0.5s ease-in",
     overflow: "hidden",
   };
@@ -30,9 +31,9 @@ const Events = () => {
         <EventFeed />
       </div>
       <div className="flex justify-center items-center">
-        <a>
+        <Link href="/event">
           <Image src={Arrow} className="w-5 h-5" />
-        </a>
+        </Link>
       </div>
     </div>
   );
