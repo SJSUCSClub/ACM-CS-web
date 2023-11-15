@@ -3,7 +3,11 @@ import LinkToButton from "./Buttons/LinkToButton";
 import Events from "./Event/Events";
 import Image from "next/image";
 import Background from "@/public/photos/background.jpg";
+import { Link } from "react-scroll";
+import Arrow from "@/public/icons/arrow.png";
+import ScrollButton from "./Buttons/ScrollBtn";
 
+const ButtonStyle = () => {};
 const Hero = () => {
   return (
     <div className="xl:h-[80vh] flex flex-col gap-12 sm:gap-2 justify-center items-center max-w-[1440px]">
@@ -30,6 +34,7 @@ const Hero = () => {
             text="Join our Discord"
           />
         </div>
+        <ScrollButton amount={770} />
       </div>
     </div>
   );

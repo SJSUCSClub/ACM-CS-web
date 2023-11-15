@@ -8,9 +8,10 @@ import Arrow from "@/public/icons/arrow.png";
 
 import Image from "next/image";
 import Link from "next/link";
+import ScrollButton from "../Buttons/ScrollBtn";
 
 const Events = () => {
-  const [showMore, setShowMore] = useState(false);
+  const [fadeIn, startFadeIn] = useState(false);
 
   const FeedStyle = {
     height: "510px",
@@ -30,10 +31,9 @@ const Events = () => {
       >
         <EventFeed />
       </div>
-      <div className="flex justify-center items-center">
-        <Link href="/event">
-          <Image src={Arrow} className="w-5 h-5" />
-        </Link>
+
+      <div className="self-center border-[#eabc4e] p-3 border-2 rounded-xl">
+        <Link href="/events">View all events</Link>
       </div>
     </div>
   );
