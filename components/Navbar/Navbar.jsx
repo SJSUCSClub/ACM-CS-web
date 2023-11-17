@@ -8,8 +8,10 @@ import { useSession, SignOut } from 'next-auth/react'
 import SignOutBtn from '../Buttons/SignOutBtn'
 import Link from 'next/link'
 import LinkCard from './LinkCard'
+import { useRouter } from 'next/navigation'
 
-const Navbar = ({ scroll }) => {
+const Navbar = ({ scroll, path }) => {
+
   const { status } = useSession()
   return (
     <div className={`navbar bg-[#f5f8f1]  ${scroll ? 'bg-[#f5f8f1] shadow-md' : 'bg-transparent'}  px-24 sm:px-6 py-3 sm:py-2 sticky flex justify-center w-[100vw] z-10 top-0 left-0 right-0`}>
@@ -18,9 +20,10 @@ const Navbar = ({ scroll }) => {
       </a>
       <div className="flex gap-4 items-center justify-center">
         <LinkCard path="/aboutus" pathName="ABOUT US" scroll={scroll}/>
-        <LinkCard path="/event" pathName="EVENTS" scroll={scroll} />
-        <LinkCard path="/workshop" pathName="WORKSHOPS" scroll={scroll} />
+        <LinkCard path="/events" pathName="EVENTS" scroll={scroll} />
+        <LinkCard path="/workshops" pathName="WORKSHOPS" scroll={scroll} />
         <LinkCard path="/blog" pathName="BLOGS" scroll={scroll}/>
+        <h1>{path}</h1>
         {status === 'authenticated' ? (
           <SignOutBtn />
         ) : (

@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <main className="space-y-24 flex flex-col justify-center items-center duration-300">
       <div
-        className={`bg-custom-bg-${currentIndex} bg-cover bg-center w-screen h-screen mt-[-87px]`}>
+        className={`bg-custom-bg-1 bg-cover bg-center w-screen h-screen mt-[-87px]`}>
         <div className="bg-black bg-opacity-[70%] h-screen">
           <Hero />
         </div>
