@@ -13,7 +13,7 @@ import Angela from '@/public/photos/officers/angela.png'
 const Officers = () => {
   const officers = [
     {
-      name: "Karthik Manishankar",
+      name: "Karthik M.",
       role: "President",
       photo: Karthik,
       linkedin: "https://www.linkedin.com/in/karthikmanishankar/"

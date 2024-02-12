@@ -50,4 +50,3 @@ export default function RootLayout({ children }) {
 }
 
 {/* <div className="bg-custom-bg bg-cover h-screen bg-center bg-no-repeat w-full"> */ }
-

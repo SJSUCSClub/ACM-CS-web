@@ -14,9 +14,13 @@ const eventSchema = new mongoose.Schema(
             type: String,
             default: "TBA",
         },
-        date: {
+        start: {
             type: Date,
-            required: [true, "Date is required"],
+            required: [true, "Start date is required"],
+        },
+        end: {
+            type: Date,
+            required: [true, "End date is required"],
         },
         location: {
             type: String,
@@ -64,6 +68,10 @@ const eventSchema = new mongoose.Schema(
             default: function () {
                 return this.date;
             },
+        },
+        googleCalendarLink: {
+            type: String,
+            default: "",
         },
     },
     {

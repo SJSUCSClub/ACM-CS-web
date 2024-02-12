@@ -4,10 +4,10 @@ import image2 from '@/public/photos/sjsu-bg/sjsu2.jpg'
 import Image from 'next/image'
 
 
-const ImagePlayer = () => {
+const ImagePlayer = ({ index }) => {
   return (
     <div>
-      {BgImages.map((image, index) => {
+      {BgImages.map((image) => {
         return (
           <div
             key={index}

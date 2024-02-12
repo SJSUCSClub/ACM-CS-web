@@ -35,11 +35,10 @@ export const Form = ({
                 <button
                     type="submit"
                     disabled={loading}
-                    className={`${
-                        loading
-                            ? "bg-gray-100 hover:bg-gray-100 text-gray-400 border-[1px] shadow-none"
-                            : "bg-blue-500 hover:bg-blue-700 text-white shadow-lg"
-                    } text-lg  py-2 px-6 rounded-lg`}
+                    className={`${loading
+                        ? "bg-gray-100 hover:bg-gray-100 text-gray-400 border-[1px] shadow-none"
+                        : "bg-blue-500 hover:bg-blue-700 text-white shadow-lg"
+                        } text-lg  py-2 px-6 rounded-lg`}
                 >
                     {loading && (
                         <svg
@@ -100,7 +99,7 @@ export const FormSection = ({ children }) => {
 export const FormSectionTitle = ({ children }) => {
     return (
         <fieldset>
-            <legend className="text-xl font-bold  pb-4">{children}</legend>
+            <legend className="text-xl font-bold pb-4">{children}</legend>
         </fieldset>
     );
 };

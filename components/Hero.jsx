@@ -14,7 +14,7 @@ const Hero = () => {
               acm</span><span className="text-[#eabc4e] group-hover:text-white transition duration-200"> cs</span> @ <span className="text-[#eabc4e] group-hover:text-white transition duration-200">SJSU</span>
           </h1>
           <h2 className="text-2xl font-bold">
-            We are the largest Computer Science organization at San José State
+            We are the largest Computer Science organization at San Jose State
             University
           </h2>
         </div>

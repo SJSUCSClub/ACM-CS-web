@@ -5,11 +5,18 @@ const LogisticsInputs = ({ loading, inputErrors }) => {
     return (
         <>
             <TextInput
-                name="date"
+                name="start"
                 type="datetime-local"
-                label={"Date*"}
+                label={"Start*"}
                 loading={loading}
-                error={inputErrors.date}
+                error={inputErrors.start}
+            />
+            <TextInput
+                name="end"
+                type="datetime-local"
+                label={"End*"}
+                loading={loading}
+                error={inputErrors.end}
             />
             <TextInput
                 name="deadline"

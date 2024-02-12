@@ -69,22 +69,47 @@ const validateInputs = (data, setErrors) => {
         }));
     }
 
-    if (!data.date) {
+    if (!data.start) {
         setErrors((prev) => ({
             ...prev,
-            date: "Date is required.",
+            start: "Start date is required.",
         }));
         error = true;
-    } else if (new Date(data.date) < new Date()) {
+    } else if (new Date(data.start) < new Date()) {
         setErrors((prev) => ({
             ...prev,
-            date: "Date must be in the future.",
+            start: "Start date must be in the future.",
         }));
         error = true;
     } else {
         setErrors((prev) => ({
             ...prev,
-            date: "",
+            start: "",
+        }));
+    }
+
+    if (!data.end) {
+        setErrors((prev) => ({
+            ...prev,
+            end: "End date is required.",
+        }));
+        error = true;
+    } else if (new Date(data.end) < new Date()) {
+        setErrors((prev) => ({
+            ...prev,
+            end: "End date must be in the future.",
+        }));
+        error = true;
+    } else if (new Date(data.end) < new Date(data.start)) {
+        setErrors((prev) => ({
+            ...prev,
+            end: "End date must be after the start.",
+        }));
+        error = true;
+    } else {
+        setErrors((prev) => ({
+            ...prev,
+            end: "",
         }));
     }
 
@@ -159,7 +184,8 @@ const page = () => {
         // image: "",
         title: "",
         description: "",
-        date: "",
+        start: "",
+        end: "",
         deadline: "",
         location: "",
         maxAttendees: "",
